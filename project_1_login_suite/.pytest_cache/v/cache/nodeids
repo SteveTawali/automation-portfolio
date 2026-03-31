@@ -1,0 +1,5 @@
+[
+  "tests/test_login.py::TestLogin::test_successful_login[chromium]",
+  "tests/test_login.py::TestLogin::test_wrong_password[chromium]",
+  "tests/test_login.py::TestLogin::test_wrong_username[chromium]"
+]

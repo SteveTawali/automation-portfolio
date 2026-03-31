@@ -1,0 +1,13 @@
+# Created by pytest automatically.
+# Mac system files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Python cache
+__pycache__/
+.pytest_cache/
+
+# Test results
+test-results/
