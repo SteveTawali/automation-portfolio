@@ -16,14 +16,13 @@ jobs:
     steps:
       # Step 1: Get your code
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Step 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
       # Step 3: Install dependencies
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -38,7 +37,7 @@ jobs:
 
       # Step 6: Upload HTML report as artifact
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()           # upload even if tests fail!
         with:
           name: test-report
