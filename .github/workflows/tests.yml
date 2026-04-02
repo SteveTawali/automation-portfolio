@@ -29,7 +29,7 @@ jobs:
         run: playwright install --with-deps chromium
 
       - name: Run tests
-        run: pytest tests/ -v
+        run: pytest project_5_cicd/tests/ -v
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
