@@ -7,8 +7,6 @@ professional test automation skills.
 - Name: Steve Tawali
 - Focus: Test Automation Engineer
 - Tools: Python, Playwright, pytest, GitHub Actions
-- LinkedIn: [Your LinkedIn URL]
-- Email: [Your Email]
 
 ## 🛠️ Tech Stack
 | Tool | Purpose |
