@@ -1,36 +1,41 @@
-// --- THE BEGINNING (Setup) ---
 pipeline {
-    agent any 
+    agent any
 
     stages {
-        // --- THE MIDDLE (The actual work) ---
-        stage('Install Python Packages') {
+        stage('Checkout') {
             steps {
-                // This is like typing in your command prompt
+                // This pulls your code from GitHub
+                checkout scm
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Uses your requirements.txt to install playwright, pytest, etc.
+                sh 'pip install --upgrade pip'
                 sh 'pip install -r requirements.txt'
             }
         }
 
-        stage('Install Playwright Browsers') {
+        stage('Install Browsers') {
             steps {
-                // Playwright needs to download Chromium/Firefox to run
+                // Essential for Playwright: downloads the actual browser binaries
                 sh 'playwright install --with-deps'
             }
         }
 
-        stage('Run My Tests') {
+        stage('Run Tests') {
             steps {
-                // This runs your python tests
+                // Runs your Python tests
                 sh 'pytest'
             }
         }
     }
 
-    // --- THE END (Cleanup/Results) ---
     post {
         always {
-            echo 'The build has finished!'
-            // You can add code here to save your test reports later
+            // This keeps your test results available in Jenkins after the run
+            archiveArtifacts artifacts: '**/test-results/**', allowEmptyArchive: true
         }
     }
 }
