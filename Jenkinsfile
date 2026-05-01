@@ -31,7 +31,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Runs your Python tests
-                sh 'pytest'
+                sh 'pytest -o "python_import_mode=importlib"'
             }
         }
     }
