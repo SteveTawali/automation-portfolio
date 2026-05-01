@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/Library/Frameworks/Python.framework/Versions/3.13/bin:${env.PATH}"
+    }
+
     stages {
         stage('Checkout') {
             steps {
