@@ -30,11 +30,14 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                // Runs your Python tests
-                sh 'pytest -o "python_import_mode=importlib"'
+                // 1. Clean up old cache files first
+                sh 'find . -name "*.pyc" -delete'
+                sh 'find . -name "__pycache__" -delete'
+
+                // 2. Use the correct flag: --import-mode=importlib
+                sh 'python3 -m pytest --import-mode=importlib'
             }
         }
-    }
 
     post {
         always {
