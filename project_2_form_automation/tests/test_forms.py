@@ -26,7 +26,7 @@ class TestForms:
         page.get_by_label("Sports").click()
         page.get_by_label("Music").click()
 
-        page.locator("#uploadPicture").set_input_files("tests/test_image.jpg")
+        page.locator("#uploadPicture").set_input_files("project_2_form_automation/tests/test_image.jpg")
 
         # ACT - Text area
         page.get_by_placeholder("Current Address").fill("123 Test Street, Kakamega")
