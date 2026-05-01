@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         PATH = "/Library/Frameworks/Python.framework/Versions/3.13/bin:${env.PATH}"
+        // ADD THIS LINE: It tells Python where to look for your 'pages' and 'tests'
+        PYTHONPATH = "${env.WORKSPACE}/project_4_pom:${env.WORKSPACE}/project_5_cicd:${env.PYTHONPATH}"
     }
 
     stages {
