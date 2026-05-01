@@ -38,6 +38,7 @@ pipeline {
                 sh 'python3 -m pytest --import-mode=importlib'
             }
         }
+    }
 
     post {
         always {
