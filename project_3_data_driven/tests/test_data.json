@@ -1,0 +1,6 @@
+[
+  ["student", "Password123", "success"],
+  ["student", "WrongPass", "failure"],
+  ["wronguser", "Password123", "failure"],
+  ["", "", "failure"]
+]

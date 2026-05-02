@@ -2,24 +2,21 @@
 # Same test runs multiple times with different data!
 
 import pytest
+import json
+import os
 from playwright.sync_api import Page, expect
 
-# @pytest.mark.parametrize runs the test once for EACH set of data
-# Format: ("param1, param2", [(data1), (data2), (data3)])
+def load_test_data():
+    data_path = os.path.join(os.path.dirname(__file__), "test_data.json")
+    with open(data_path, "r") as f:
+        return json.load(f)
 
-@pytest.mark.parametrize("username, password, expected", [
-    # (Username,      Password,       expected result)
-    ("student",      "Password123",  "success"),   # valid user
-    ("student",      "WrongPass",    "failure"),   # wrong password
-    ("wronguser",    "Password123",  "failure"),   # wrong username
-    ("",             "",             "failure"),   # empty credentials
-])
-
+@pytest.mark.parametrize("username, password, expected", load_test_data())
 class TestDataDrivenLogin:
 
     login_url = "https://practicetestautomation.com/practice-test-login/"
 
-    def test_login(self,page: Page, username, password, expected):
+    def test_login(self, page: Page, username, password, expected):
         page.goto(self.login_url)
         page.get_by_label("Username").fill(username)
         page.get_by_label("Password").fill(password)

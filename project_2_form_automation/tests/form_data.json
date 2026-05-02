@@ -1,0 +1,19 @@
+{
+  "student_info": {
+    "first_name": "Steven",
+    "last_name": "Tawali",
+    "email": "tawalitest2@gmail.com",
+    "gender": "Male",
+    "mobile": "0701020405",
+    "date_of_birth": {
+      "day": "25",
+      "month": "December",
+      "year": "2001",
+      "label": "Choose Tuesday, December 25th, 2001"
+    },
+    "subjects": ["English"],
+    "hobbies": ["Sports", "Music"],
+    "profile_picture": "project_2_form_automation/tests/test_image.jpg",
+    "address": "123 Test Street, Kakamega"
+  }
+}
